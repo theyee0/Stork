@@ -1,2 +1,35 @@
 # Stork
 A procedurally generated fantasy game, aimed to explore traditional story generation techniques to approach an experience like Zork.
+
+# Usage
+## Demo
+Demo will be released when game is complete.
+
+## Building
+Building steps are still in progress
+
+# Overview
+## To-Do:
+- [ ] Create unified system for callback functions
+- [ ] Define data types for rooms, characters, etc.
+- [ ] Determine mechanisms for allowing properties to change behaviors (callback function?)
+- [ ] Write sample tables for storytelling
+- [ ] Select map generation algorithm
+- [ ] Write parser
+- [ ] Set up build systems
+
+## Vision and Plan
+The game runs in "ticks," or turns. Between ticks, the player will have time to think without the program responding. The number of events between each tick can be configured manually, and more events per tick will necessarily make a harder game for you!
+
+The program is structured into a few primary components:
+1. `release.lisp` binds all subcomponents so that they can be built into the final executable
+2. `event.lisp` takes the game state and the event queue, then selects an event from that.
+3. `map.lisp` generates the map of the game
+3. `entity.lisp` generates a character's backstory and traits. Depends on `event.lisp`
+4. `history.lisp` generates lore
+5. `parse.lisp` takes user input and determines what kind of command the user made
+
+## Motivation
+I decided that developing in C, my preferred language, would be too difficult simply due to the minimalism of the language. Therefore, I decided to explore the opportunity to write this program in Common Lisp, which is another language that interests me.
+
+I also wanted to explore procedural storytelling without the use of artificial intelligence - the aim is to one day extend this program with a richer set of story rules and to include some concepts from computational semantics to approach the level of immersiveness that a human storyteller (or an LLM) can provide. I was inspired in particular by dwarf fortress's procedural storytelling.
