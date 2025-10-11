@@ -28,6 +28,7 @@ The program is structured into a few primary components:
 3. `entity.lisp` generates a character's backstory and traits. Depends on `event.lisp`
 4. `history.lisp` generates lore
 5. `parse.lisp` takes user input and determines what kind of command the user made
+6. `logic.lisp` defines conditions and will hopefully serve to check for logical inconsistencies
 
 ## Motivation
 I decided that developing in C, my preferred language, would be too difficult simply due to the minimalism of the language. Therefore, I decided to explore the opportunity to write this program in Common Lisp, which is another language that interests me.
