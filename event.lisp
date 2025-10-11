@@ -1,9 +1,6 @@
 ;;;; event.lisp
 
-(defpackage #:event
-  (:use :cl :cl-user :logic))
-
-(in-package :event)
+(in-package #:event)
 
 (defconstant +events-per-tick+ 3)
 (defconstant +ticks-per-year+ 30000)
@@ -155,7 +152,7 @@
                     variants)))
            (map 'list #'cdr event-classes))))
 
-;(generate-event-from-class +event-classes+ events)
+(generate-event-from-class +event-classes+ events)
 
 ;;; Top-Level functions
 (defun simulate-events (state event-table)

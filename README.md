@@ -6,7 +6,7 @@ A procedurally generated fantasy game, aimed to explore traditional story genera
 Demo will be released when game is complete.
 
 ## Building
-Building steps are still in progress
+The file uses (asdf)[https://asdf.common-lisp.dev/] for building.
 
 # Overview
 ## To-Do:
@@ -22,7 +22,7 @@ Building steps are still in progress
 The game runs in "ticks," or turns. Between ticks, the player will have time to think without the program responding. The number of events between each tick can be configured manually, and more events per tick will necessarily make a harder game for you!
 
 The program is structured into a few primary components:
-1. `release.lisp` binds all subcomponents so that they can be built into the final executable
+1. `stork.lisp` is the file that will create the final executive
 2. `event.lisp` takes the game state and the event queue, then selects an event from that.
 3. `map.lisp` generates the map of the game
 3. `entity.lisp` generates a character's backstory and traits. Depends on `event.lisp`

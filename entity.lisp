@@ -1,5 +1,7 @@
 ;;;; entity.lisp
 
+(in-package #:entity)
+
 ;; Define tendencies for hostile characters
 (defconstant +hostility+
   `(('passive . nil)
@@ -19,12 +21,12 @@
   '(('human . nil)
     ('dwarf . nil)
     ('elf . nil)
-    ('orc . nil)))
-
-;; 
+    ('orc . nil)
+    ('goblin. nil)))
 
 ;; Define properties of a character
 (defstruct character
+  (name nil)
   (race nil)
   (hostility nil)
   (appearance nil)
@@ -36,4 +38,13 @@
   (senses nil)
   (status nil)
   (personality nil)
+  (desires nil)
   (attention nil))
+
+;; Properties of object
+(defstruct object
+  (owner nil)
+  (name "")
+  (age 0)
+  (birth-tick 0)
+  (type nil))
