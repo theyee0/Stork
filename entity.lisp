@@ -3,13 +3,13 @@
 (in-package #:entity)
 
 ;; Define tendencies for hostile characters
-(defconstant +hostility+
+(defparameter +hostility+
   `(('passive . nil)
     ('neutral . nil)
     ('hostile . nil)))
 
 ;; Define properties of senses
-(defconstant +senses+
+(defparameter +senses+
   `(('sight . nil)
     ('hearing . nil)
     ('taste . nil)
@@ -17,7 +17,7 @@
     ('smell . nil)))
 
 ;; Define tendencies for different races
-(defconstant +races+
+(defparameter +races+
   '(('human . nil)
     ('dwarf . nil)
     ('elf . nil)

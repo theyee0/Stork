@@ -2,24 +2,24 @@
 
 (in-package #:parse)
 
-(defconstant +sentence-structures+
+(defparameter +sentence-structures+
   '((verb noun)
     (verb noun preposition noun)))
 
 ;; Verb table is either of the form
 ;; (verb . (action . (parameters)))
 
-(defconstant +prepositions+
+(defparameter +prepositions+
   '(with to at for above below))
 
-(defconstant +synonyms+
+(defparameter +synonyms+
   '((move . (go walk))
     (attack . (hit strike))
     (rush . (run dash))
     (use . (operate))))
      
 
-(defconstant +verbs+
+(defparameter +verbs+
   '((move . (#'move . nil))
     (attack . (#'attack . nil))
     (search . (#'search . nil))

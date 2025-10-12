@@ -2,12 +2,12 @@
 
 (in-package #:map-tools)
 
-(defconstant +room-probability+ 0.2)
-(defconstant +direction-vectors+
+(defparameter +room-probability+ 0.2)
+(defparameter +direction-vectors+
   `((north . (1 0)) (east . (0 1)) (south . (-1 0)) (west . (0 -1))))
-(defconstant +directions+
+(defparameter +directions+
   `(north east south west))
-(defconstant +direction-opposites+
+(defparameter +direction-opposites+
   `((north . south) (east . west) (south . north) (west . east)))
 
 (defparameter game-map (make-hash-table))
