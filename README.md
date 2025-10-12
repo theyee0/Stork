@@ -6,7 +6,7 @@ A procedurally generated fantasy game, aimed to explore traditional story genera
 Demo will be released when game is complete.
 
 ## Building
-The file uses (asdf)[https://asdf.common-lisp.dev/] for building.
+The file uses [asdf](https://asdf.common-lisp.dev/) for building.
 
 # Overview
 ## To-Do:
