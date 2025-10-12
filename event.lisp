@@ -20,7 +20,6 @@
 (defun current-room (state)
   (equal (map-room-index (context-current-room state)) '(0 0)))
 
-
 ;; Table format:
 ;; ('type-1 . (('property-1 . 'value-1)
 ;;             ('property-2 . 'value-2)
@@ -147,13 +146,11 @@
     (status-effect . ((name . "You feel ~A~A")
                       (parameters . (name excitement))
                       (variants . ,+status-effects+)))
-    (apparation . ((name . "A ~A appeared from ~A")
+    (apparation . ((name . "A ~A appeared~A")
                    (parameters . (name excitement))
                    (variants . ,+apparitions+)))
     (luck . ((name . "Somehow you feel vaguely optimistic, like something might go well...")))
     (unluck . ((name . "You feel vaguely pessimistic. You feel worried that something will go poorly...")))))
-
-(print (typep +event-classes+ 'sequence))
 
 (defmacro generate-event-from-class (event-classes const-name)
   `(defconstant ,const-name
@@ -178,7 +175,6 @@
                  ,event-classes))))
 
 (generate-event-from-class +event-classes+ events)
-(print events)
 
 ;;; Top-Level functions
 (defun simulate-events (state event-table)
