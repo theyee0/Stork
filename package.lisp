@@ -8,12 +8,12 @@
   (:export condition-met-p))
 
 (defpackage #:event
-  (:use #:cl #:logic #:map #:character)
+  (:use #:cl #:logic #:map-tools #:entity)
   (:export context +feelings+ +status-effects+ +apparitions+ +event-classes+ events
            simulate-events simulate-conditions evaluate-probability simulate-event
            simulate-effect simulate-effects simulate-event))
 
-(defpackage #:map
+(defpackage #:map-tools
   (:use #:cl)
   (:export game-map room extend-map get-room gen-connection))
 

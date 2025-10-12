@@ -25,7 +25,7 @@
     ('goblin. nil)))
 
 ;; Define properties of a character
-(defstruct character
+(defstruct person
   (name nil)
   (race nil)
   (hostility nil)

@@ -11,4 +11,4 @@
                (:file "entity")
                (:file "event")
                (:file "logic")
-               (:file "map"))
+               (:file "map_tools")))
