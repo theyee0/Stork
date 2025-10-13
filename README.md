@@ -5,6 +5,10 @@ A procedurally generated fantasy game, aimed to explore traditional story genera
 ## Demo
 A short demo showing the basic interface:
 
+https://github.com/user-attachments/assets/aaf94dbb-0232-4ef8-bad2-d03ac747863c
+
+
+
 ## Building
 The file uses [asdf](https://asdf.common-lisp.dev/) for building. You can enter the following commands into a REPL to build, assuming you have asdf installed already:
 ```
