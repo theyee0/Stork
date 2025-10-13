@@ -3,20 +3,29 @@ A procedurally generated fantasy game, aimed to explore traditional story genera
 
 # Usage
 ## Demo
-Demo will be released when game is complete.
+A short demo showing the basic interface:
 
 ## Building
-The file uses [asdf](https://asdf.common-lisp.dev/) for building.
+The file uses [asdf](https://asdf.common-lisp.dev/) for building. You can enter the following commands into a REPL to build, assuming you have asdf installed already:
+```
+(require 'asdf)
+(load stork.asd)
+(asdf:load-system "stork")
+```
+Then, you can run the game loop through
+```
+(stork:main)
+```
 
 # Overview
 ## To-Do:
-- [ ] Create unified system for callback functions
-- [ ] Define data types for rooms, characters, etc.
-- [ ] Determine mechanisms for allowing properties to change behaviors (callback function?)
+- [x] Create unified system for callback functions
+- [x] Define data types for rooms, characters, etc.
+- [x] Determine mechanisms for allowing properties to change behaviors (callback function?)
 - [ ] Write sample tables for storytelling
 - [ ] Select map generation algorithm
-- [ ] Write parser
-- [ ] Set up build systems
+- [x] Write parser
+- [x] Set up build systems
 
 ## Vision and Plan
 The game runs in "ticks," or turns. Between ticks, the player will have time to think without the program responding. The number of events between each tick can be configured manually, and more events per tick will necessarily make a harder game for you!
