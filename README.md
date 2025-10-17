@@ -22,7 +22,7 @@ in the command line. It should then show a prompt with an asterisk, into which y
 The file uses [asdf](https://asdf.common-lisp.dev/) for building. You can enter the following commands into a REPL to build, assuming you have asdf installed already:
 ```
 (require 'asdf)
-(load stork.asd)
+(load "stork.asd")
 (asdf:load-system "stork")
 ```
 
