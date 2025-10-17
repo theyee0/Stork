@@ -40,11 +40,11 @@
 
 (defun match-verb (verb)
   (if (assoc verb +verbs+)
-      t
+      verb
       (progn
         (loop :for synonym :in +synonyms+ :do
           (when (find verb (cdr synonym))
-            (return t)))
+            (return-from match-verb (car synonym))))
         nil)))
 
 (defun match-sentence (command sentence-structure)
@@ -61,7 +61,7 @@
   (if (or (not command) (not sentence-structure))
       nil
       (case (car sentence-structure)
-        (verb (apply (cadr (assoc (car command) +verbs+))
+        (verb (apply (cadr (assoc (match-verb (car command)) +verbs+))
                      state
                      (concatenate 'list (cddr (assoc (car command) +verbs+))
                                   (run-command state (cdr command) (cdr sentence-structure)))))
