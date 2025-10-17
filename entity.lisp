@@ -52,10 +52,14 @@
   (birth-tick 0)
   (type nil))
 
-(defun wait (state)
+(defun wait (state &rest rest)
+  (when rest
+    (format t "You entered extra parameters. They have been ignored.~%" rest))
   (format t "You wait in place. ~A~%" (map-room-description (context-current-room state))))
 
-(defun move (state direction)
+(defun move (state direction &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (if (find direction `(:north :east :south :west))
       (let ((destination (get-room state (context-current-room state) direction))
             (current (context-current-room state)))
@@ -68,13 +72,17 @@
               (setf current destination))))
       (format t "That's not a valid direction! You can go North, East, South, or West~%")))
 
-(defun attack (state target)
+(defun attack (state target &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (let ((entities (context-entities state)))
     (if (gethash target entities)
         (format t "Oops! You tried to attack something, which is not yet implemented.~%")
         (format t "That target does not exist.~%"))))
 
-(defun search-room (state target)
+(defun search-room (state target &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (let* ((current-room (context-current-room state))
          (objects (map-room-objects current-room))
          (target-object (gethash target objects)))
@@ -92,17 +100,25 @@
         (format t "That target does not exist.~%"))))
 
 ; TODO: Add quietness as characteristic
-(defun tiptoe (state direction)
+(defun tiptoe (state direction &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (move state direction))
 
 ; TODO: Add speed as characteristic
-(defun run (state direction)
+(defun run (state direction &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (move state direction))
 
-(defun look (state)
+(defun look (state &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (format t "~a~%" (map-room-description (context-current-room state))))
 
-(defun use (state object)
+(defun use (state object &rest rest)
+  (when rest
+    (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
   (if (object-behaviors object)
       (dolist (behavior (object-behaviors object))
         (funcall behavior state))
