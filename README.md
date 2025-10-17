@@ -26,7 +26,11 @@ Then, you can run the game loop through
 (stork:main)
 ```
 
-# Overview
+Currently, the following commands are implemented:
+- `wait` - Lets a turn pass without you doing anything
+- `move` - Moves in a cardinal direction (north, east, south, west)
+Technically speaking, `look`, `use`, `search`, `attack` also work, but since the story and characters have not been written yet, there is nothing to see, use, search, or attack.
+
 ## To-Do:
 - [x] Create unified system for callback functions
 - [x] Define data types for rooms, characters, etc.
