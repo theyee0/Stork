@@ -7,15 +7,20 @@ A short demo showing the basic interface:
 
 https://github.com/user-attachments/assets/aaf94dbb-0232-4ef8-bad2-d03ac747863c
 
+## Building and Running
+This requires a lisp compiler to be installed. I'd suggest using SBCL, which you can run with
+```
+sbcl
+``
+in the command line. It should then show a prompt with an asterisk, into which you can then type commands. If you get a prompt with a number and a bracket like `0]` or `1]`, you are in the debugger. You can type the number corresponding to "ABORT" or similar, and it should put you back into the normal asterisk prompt.
 
-
-## Building
 The file uses [asdf](https://asdf.common-lisp.dev/) for building. You can enter the following commands into a REPL to build, assuming you have asdf installed already:
 ```
 (require 'asdf)
 (load stork.asd)
 (asdf:load-system "stork")
 ```
+
 Then, you can run the game loop through
 ```
 (stork:main)
