@@ -9,7 +9,10 @@
   (setf (event::context-tick state) (+ (random 1000) 7))
 
   (format t ">")
+  (finish-output)
+
   (loop :while (parse:read-commands state (read-line))
         :do
            (event:simulate-events state event:events)
-           (format t ">")))
+           (format t ">")
+           (finish-output)))
