@@ -75,5 +75,7 @@
         (format t "Interpreting sentence structure as ~a: ~a~%" structure command)
         (run-command state words structure)
         (return-from read-commands t))))
-  (format t "Failed to identify sentence structure of ~S~%" command))
+  (if (equal command "quit")
+    nil
+    (format t "Failed to identify sentence structure of ~S~%" command)))
 
