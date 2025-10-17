@@ -8,7 +8,12 @@ A short demo showing the basic interface:
 https://github.com/user-attachments/assets/aaf94dbb-0232-4ef8-bad2-d03ac747863c
 
 ## Building and Running
-This requires a lisp compiler to be installed. I'd suggest using SBCL, which you can run with
+You can run with the following command, assuming you have `sbcl` installed:
+```
+sbcl --script run.lisp
+```
+
+Alternatively, you can run the program from the REPL. This also requires a lisp compiler to be installed. I'd suggest using SBCL, which you can run with
 ```
 sbcl
 ``
