@@ -56,15 +56,17 @@
   (format t "You wait in place. ~A~%" (map-room-description (context-current-room state))))
 
 (defun move (state direction)
-  (let ((destination (get-room state (context-current-room state) direction))
-        (current (context-current-room state)))
-    (if (not destination)
-        (format t "There is nothing to the ~a.~%" (string-downcase (string direction)))
-        (progn
-          (when (not (map-room-visited destination))
-            (setf (map-room-visited destination) t)
-            (extend-map state destination))
-        (setf current destination)))))
+  (if (find direction `(:north :east :south :west))
+      (let ((destination (get-room state (context-current-room state) direction))
+            (current (context-current-room state)))
+        (if (not destination)
+            (format t "There is nothing to the ~a.~%" (string-downcase (string direction)))
+            (progn
+              (when (not (map-room-visited destination))
+                (setf (map-room-visited destination) t)
+                (extend-map state destination))
+              (setf current destination))))
+      (format t "That's not a valid direction! You can go North, East, South, or West~%")))
 
 (defun attack (state target)
   (let ((entities (context-entities state)))
