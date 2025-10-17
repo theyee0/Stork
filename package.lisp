@@ -7,7 +7,7 @@
 (defpackage :entity
   (:use :cl)
   (:export +hostility+ +senses +races+ make-person make-object
-           move attack search tiptoe run look use wait))
+           move attack search-room tiptoe run look use wait))
 
 (defpackage :event
   (:use :cl)

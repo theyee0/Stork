@@ -83,12 +83,13 @@
 (defun search-room (state target &rest rest)
   (when rest
     (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
+   
   (let* ((current-room (context-current-room state))
          (objects (map-room-objects current-room))
          (target-object (gethash target objects)))
     (if target-object
         (let* ((skills (person-skills (context-player state)))
-              (search-skill (gethash 'search skills)))
+               (search-skill (gethash 'search skills)))
           (look state)
           (if (and search-skill (<= search-skill (random 1.0)))
               (progn
@@ -119,7 +120,9 @@
 (defun use (state object &rest rest)
   (when rest
     (format t "You entered extra parameters ~A. They have been ignored.~%" rest))
-  (if (object-behaviors object)
-      (dolist (behavior (object-behaviors object))
-        (funcall behavior state))
-      (format t "~a doesn't do anything.~%" (object-name object))))
+  (if (gethash object (map-room-objects (context-current-room state)))
+      (if (object-behaviors object)
+          (dolist (behavior (object-behaviors object))
+            (funcall behavior state))
+          (format t "~a doesn't do anything.~%" (object-name object)))
+      (format t "~a does not exist where you currently stand.~%" object)))

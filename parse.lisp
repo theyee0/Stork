@@ -24,11 +24,21 @@
   '((:wait . (entity:wait . nil))
     (:move . (entity:move . nil))
     (:attack . (entity:attack . nil))
-    (:search . (entity:search . nil))
+    (:search . (entity:search-room . nil))
     (:tiptoe . (entity:tiptoe . nil))
     (:run . (entity:run . nil))
     (:look . (entity:look . nil))
     (:use . (entity:use . nil))))
+
+(defparameter +required-parameters+
+  '((:wait . 0)
+    (:move . 1)
+    (:attack . 1)
+    (:search . 1)
+    (:tiptoe . 1)
+    (:run . 1)
+    (:look . 0)
+    (:use . 1)))
 
 (defun split-command (command)
   (let ((space-index (position #\Space command)))
@@ -61,10 +71,12 @@
   (if (or (not command) (not sentence-structure))
       nil
       (case (car sentence-structure)
-        (verb (apply (cadr (assoc (match-verb (car command)) +verbs+))
-                     state
-                     (concatenate 'list (cddr (assoc (car command) +verbs+))
-                                  (run-command state (cdr command) (cdr sentence-structure)))))
+        (verb (let ((commands (concatenate 'list (cddr (assoc (car command) +verbs+))
+					   (run-command state (cdr command) (cdr sentence-structure))))
+		    (verb (match-verb (car command))))
+		(if (= (length commands) (cdr (assoc verb +required-parameters+)))
+		  (apply (cadr (assoc (verb) +verbs+)) state commands)
+		  (format t "Invalid number of arguments~%"))))
         (noun (cons (car command) (run-command state (cdr command) (cdr sentence-structure))))
         (preposition (cons (car command) (run-command state (cdr command) (cdr sentence-structure)))))))
 
