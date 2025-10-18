@@ -16,7 +16,7 @@ sbcl --script run.lisp
 Alternatively, you can run the program from the REPL. This also requires a lisp compiler to be installed. I'd suggest using SBCL, which you can run with
 ```
 sbcl
-``
+```
 in the command line. It should then show a prompt with an asterisk, into which you can then type commands. If you get a prompt with a number and a bracket like `0]` or `1]`, you are in the debugger. You can type the number corresponding to "ABORT" or similar, and it should put you back into the normal asterisk prompt.
 
 The file uses [asdf](https://asdf.common-lisp.dev/) for building. You can enter the following commands into a REPL to build, assuming you have asdf installed already:
